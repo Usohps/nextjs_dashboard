@@ -3,11 +3,11 @@ import React from "react";
 function Table() {
   return (
     <>
-      <div className="flex items-center justify-between p-4">
+      <div className=" container m-auto flex items-center justify-between p-4">
         <h2>Recent Activity</h2>
         <span>See More</span>
       </div>
-      <div className="w-full  overflow-x-auto">
+      <div className="w-full  overflow-x-auto md:text-sm">
         <table className="w-full">
           <thead className="">
             <tr className="bg-gray-600 text-white ">

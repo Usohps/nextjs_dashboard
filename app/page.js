@@ -1,6 +1,4 @@
 import Cards from "./components/Cards";
-// import Navbar from "./components/Navbar";
-// import Sidebar from "./components/Sidebar";
 import Table from "./components/Table";
 export const metadata = {
   title: "Welcome ProvidusBank",
@@ -8,8 +6,8 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <div>
-        <h1>DASHBOARD</h1>
+      <div className="space-y-8 py-12">
+        <h1 className="p-4 text-lg font-bold">DASHBOARD</h1>
         <Cards />
       </div>
       <Table />

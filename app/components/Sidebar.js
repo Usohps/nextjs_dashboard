@@ -13,21 +13,27 @@ import {
 // import RxHamburgerMenu from "react-icons/rx"
 // import SiSimpleanalytics from "react-icons/si";
 
-function Sidebar() {
+function Sidebar({ active }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <aside className="h-[100vh] shadow-lg hidden md:block  w-1/4 bg-white">
-      <Image src={Logo} placeholder="blur" quality={100} />
-      <div>
+    <aside
+      className={`${
+        active
+          ? "absolute top-0 left-0 w-1/2 h-[100vh] bg-white shadow-2xl"
+          : "relative h-[100vh] shadow-lg hidden md:block z-20   w-1/4 bg-white"
+      }`}
+    >
+      <div className="min-h-full space-y-6">
+        <div className="w-full flex justify-left items-center my-16 md:my-4"><Image src={Logo} alt="" placeholder="blur" quality={100} /></div>
         <div className="flex items-center p-4 space-x-2">
-          <AiOutlineHome />
-        <Link href={"/"}>Home</Link>
+          <AiOutlineHome className="w-12" />
+          <Link href={"/"}>Home</Link>
         </div>
         <div className="">
           <div className="flex relative">
-            <AiOutlineUsergroupDelete className="absolute top-5 left-5" />
+            <AiOutlineUsergroupDelete className="absolute top-5 left-5 w-12" />
             <button
-              className="flex w-full relative p-4 ml-6 justify-between items-center"
+              className="flex w-full relative p-4 ml-12 justify-between items-center"
               onClick={() => setIsOpen((prev) => !prev)}
             >
               Account
@@ -52,8 +58,8 @@ function Sidebar() {
         </div>
 
         <div className="flex items-center p-4 space-x-2">
-        {/* <RxHamburgerMenu/> */}
-        <Link href={"/"}>Report</Link>
+          {/* <RxHamburgerMenu/> */}
+          <Link href={"/"}>Report</Link>
         </div>
       </div>
     </aside>

@@ -1,3 +1,5 @@
+"use client"
+import { useState } from 'react'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import './globals.css'
@@ -10,13 +12,17 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const [active, setActive] = useState(false)
+  function handleToggle(){
+    setActive(!active)
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-between bg-white">
-        <Sidebar />
+        <div className="flex justify-between bg-white relative">
+        <Sidebar active={active} />
         <div className="container p-4">
-        <Navbar />
+        <Navbar active={active} handleToggle={handleToggle} />
         <div>{children}</div>
         </div>
         </div>
